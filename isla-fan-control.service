@@ -1,0 +1,15 @@
+[Unit]
+Description=Isla FAN Controller
+After=nvidia-persistenced.target
+
+[Service]
+Type=simple
+ExecStart=/opt/isla-fan-control/isla-fan-control /etc/fan-control.yml
+Restart=on-failure
+RestartSec=2
+TimeoutStartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
